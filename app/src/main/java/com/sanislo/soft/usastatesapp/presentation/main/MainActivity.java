@@ -65,4 +65,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public void onError(Throwable error) {
         Toast.makeText(this, error.getMessage(), Toast.LENGTH_LONG).show();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mMainPresenter.clear();
+    }
 }
